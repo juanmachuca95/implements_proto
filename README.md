@@ -3,13 +3,13 @@
 #### gRPC Web - Makefile to Javascript
 
 ```makefile
-gen-web: 
-    protoc -I=protos webuno.proto \
-    --js_out=import_style=commonjs:generated \
-    --grpc-web_out=import_style=commonjs,mode=grpcwebtext:generated
+gen-grpc-web: 
+	protoc -I=protos webuno.proto \
+	--js_out=import_style=commonjs:generated \
+	--grpc-web_out=import_style=commonjs,mode=grpcwebtext:generated
 
-clean-gen-web:
-    rm -rf generated/*
+clean-grpc-web:
+	rm -rf generated/*.js
 ```
 
 #### gRPC - Makefile to Golang
@@ -18,8 +18,9 @@ Para golang implement - es necesario la sentencia option ```go_package = "./gene
 ```makefile
 gen-grpc-go:
 	protoc -I=protos --go_out=. --go-grpc_out=. protos/proto.proto
+
 clean-grpc-go:
-	rm -rf generatedgo/*
+	rm -rf generated/*.pb.go
 ```
 
 
