@@ -5,3 +5,10 @@ gen-web:
 
 clean-gen-web:
 	rm -rf generated/*
+
+# gRPC Golang
+gen-grpc-go:
+	protoc -I=protos --go_out=. --go-grpc_out=. protos/protogo.proto
+
+clean-grpc-go:
+	rm -rf generatedgo/*

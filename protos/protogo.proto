@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option go_package = "./generated";
+
+message Something {
+    string something = 1;
+}
+
+message Empty {}
+
+service GrpcWebService {
+    rpc GetSomething (Empty) returns (Something);
+}
