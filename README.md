@@ -5,15 +5,15 @@
 ```makefile
 gen-web: 
     protoc -I=protos webuno.proto \
---js_out=import_style=commonjs:generated \
---grpc-web_out=import_style=commonjs,mode=grpcwebtext:generated
+    --js_out=import_style=commonjs:generated \
+    --grpc-web_out=import_style=commonjs,mode=grpcwebtext:generated
 
 clean-gen-web:
     rm -rf generated/*
 ```
 
 #### gRPC - Makefile to Golang
-Para golang implement - es necesario la sentencia ''' option go_package = "./generated"; '''
+Para golang implement - es necesario la sentencia option ```go_package = "./generated";```
 
 ```makefile
 gen-grpc-go:
