@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+message Something {
+    string something = 1;
+}
+
+message Empty {}
+
+service GrpcWebService {
+    rpc GetSomething (Empty) returns (Something);
+}
