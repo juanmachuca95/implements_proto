@@ -10,5 +10,3 @@ clean-gen-web:
 gen-grpc-go:
 	protoc -I=protos --go_out=. --go-grpc_out=. protos/protogo.proto
 
-clean-grpc-go:
-	rm -rf generatedgo/*
