@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "google/api/annotations.proto";
+
 message Something {
     string something = 1;
 }
@@ -7,5 +9,10 @@ message Something {
 message Empty {}
 
 service GrpcWebService {
-    rpc GetSomething (Empty) returns (Something);
+    rpc GetSomething (Empty) returns (Something){
+        option (google.api.http) = {
+            post: "/v1/microservice/getsomethign"
+            body: "*"
+        };
+    };
 }

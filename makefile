@@ -13,3 +13,13 @@ gen-grpc-go:
 
 clean-grpc-go:
 	rm -rf generated/*.pb.go
+
+# gRPC Gateway
+gen-grpc-gateway:
+	protoc -I . --grpc-gateway_out . \
+    --grpc-gateway_opt logtostderr=true \
+    --grpc-gateway_opt generate_unbound_methods=true \
+    protos/protogo.proto
+
+clean-grpc-gateway:
+	rm -rf generated/*.gw.go
