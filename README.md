@@ -1,6 +1,6 @@
 ### Implementación de protos
 
-#### gRPC Web - Makefile to Javascript
+### gRPC Web - Makefile to Javascript
 
 ```makefile
 gen-grpc-web: 
@@ -12,7 +12,7 @@ clean-grpc-web:
 	rm -rf generated/*.js
 ```
 
-#### gRPC - Makefile to Golang
+### gRPC - Makefile to Golang
 Para golang implement - es necesario la sentencia option ```go_package = "./generated";```
 
 ```makefile
@@ -23,4 +23,16 @@ clean-grpc-go:
 	rm -rf generated/*.pb.go
 ```
 
+### gRPC Gateway
+Para implementar reverse proxy. HTTP+JSON interface para gRPC services. 
 
+```makefile
+gen-grpc-gateway:
+	protoc -I . --grpc-gateway_out . \
+    --grpc-gateway_opt logtostderr=true \
+    --grpc-gateway_opt generate_unbound_methods=true \
+    protos/protogo.proto
+
+clean-grpc-gateway:
+	rm -rf generated/*.gw.go
+```
